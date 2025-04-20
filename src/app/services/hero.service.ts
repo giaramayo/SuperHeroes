@@ -12,4 +12,6 @@ export class HeroService {
     { id: 2, name: 'Spiderman', power: 'Ágil', universe: 'Marvel' },
     { id: 3, name: 'Manolito el fuerte', power: 'Gritar', universe: 'Cómic Argento' },
   ];
+
+
 }

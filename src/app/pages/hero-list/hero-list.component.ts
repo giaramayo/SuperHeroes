@@ -1,16 +1,21 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit, signal, ViewChild } from '@angular/core';
-import { Hero } from '../../models/hero';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {AfterViewInit, ViewChild} from '@angular/core';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
+import { Hero } from '../../models/hero';
+import { FilterHeroComponent } from '../../components/filter-hero/filter-hero.component';
 @Component({
   selector: 'app-hero-list',
   standalone: true,
-  imports: [  ],
+  imports: [FilterHeroComponent],
   templateUrl: './hero-list.component.html',
   styleUrls: ['./hero-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroListComponent  {
-  // private heroService = inject(HeroService);
-  // public heroeslist: Hero[] = signal([])
 
 }
