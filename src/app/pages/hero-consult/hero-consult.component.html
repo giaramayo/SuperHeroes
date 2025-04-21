@@ -1,1 +1,14 @@
 <div class="collapse-title text-xl font-medium text-center w-full">Héroes!</div>
+
+<app-hero-search-input
+  placeholder="Buscar héroe por nombre o ID"
+  [initialValue]="query()"
+  (value)="query.set($event)"
+/>
+
+<app-hero-list
+  [heroes]="heroResource.value() ?? []"
+  [errorMessage]="heroResource.error()"
+  [isEmpty]="heroResource.value()?.length === 0"
+  [isLoading]="heroResource.isLoading()"
+/>

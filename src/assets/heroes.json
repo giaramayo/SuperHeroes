@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "name": "Superman",
+    "power": "Fuerza sobrehumana, vuelo, visión láser",
+    "universe": "DC",
+    "images": "https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png"
+  },
+  {
+    "id": "2",
+    "name": "Batman",
+    "power": "Intelecto, artes marciales, tecnología",
+    "universe": "DC",
+    "images": "https://upload.wikimedia.org/wikipedia/en/8/88/Batman_BenAffleck.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Wonder Woman",
+    "power": "Fuerza sobrehumana, agilidad, lazo de la verdad",
+    "universe": "DC",
+    "images": "https://upload.wikimedia.org/wikipedia/en/e/ed/Wonder_Woman_%282017_film%29.jpg"
+  },
+  {
+    "id": "4",
+    "name": "Iron Man",
+    "power": "Armadura tecnológica, inteligencia superior",
+    "universe": "Marvel",
+    "images": "https://upload.wikimedia.org/wikipedia/en/e/e0/Iron_Man_bleeding_edge.jpg"
+  },
+  {
+    "id": "5",
+    "name": "Spider-Man",
+    "power": "Agilidad, telarañas, sentido arácnido",
+    "universe": "Marvel",
+    "images": "https://upload.wikimedia.org/wikipedia/en/0/0c/Spiderman50.jpg"
+  },
+  {
+    "id": "6",
+    "name": "Captain America",
+    "power": "Fuerza aumentada, escudo invulnerable",
+    "universe": "Marvel",
+    "images": "https://upload.wikimedia.org/wikipedia/en/9/91/CaptainAmerica109.jpg"
+  },
+  {
+    "id": "7",
+    "name": "Thor",
+    "power": "Dios del trueno, Mjolnir, inmortalidad",
+    "universe": "Marvel",
+    "images": "https://upload.wikimedia.org/wikipedia/en/4/41/Thor-272.jpg"
+  },
+  {
+    "id": "8",
+    "name": "Black Panther",
+    "power": "Habilidad de combate, traje de vibranium",
+    "universe": "Marvel",
+    "images": "https://upload.wikimedia.org/wikipedia/en/9/9f/Black_Panther_OS_Vol_1_2.png"
+  },
+  {
+    "id": "9",
+    "name": "Flash",
+    "power": "Velocidad sobrehumana, manipulación del tiempo",
+    "universe": "DC",
+    "images": "https://upload.wikimedia.org/wikipedia/en/e/ed/Flash_Family.jpg"
+  },
+  {
+    "id": "10",
+    "name": "Hulk",
+    "power": "Fuerza ilimitada, regeneración",
+    "universe": "Marvel",
+    "images": "https://upload.wikimedia.org/wikipedia/en/5/59/Hulk_%28comics_character%29.png"
+  }
+]

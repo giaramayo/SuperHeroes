@@ -1,6 +1,7 @@
 export interface Hero {
-  id: number;
+  id: string;
   name: string;
   power?: string;
   universe?: string;
+  images: string;
 }

@@ -1,1 +1,38 @@
-<p>hero-list works!</p>
+<section class="mt-5">
+  <table mat-table [dataSource]="filteredHeroes()" class="mat-elevation-z8 w-full" style="background-color: #141c23;">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>#</th>
+      <td mat-cell *matCellDef="let hero">{{ hero.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let hero">{{ hero.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="power">
+      <th mat-header-cell *matHeaderCellDef>Superpoder</th>
+      <td mat-cell *matCellDef="let hero">{{ hero.power }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="universe">
+      <th mat-header-cell *matHeaderCellDef>Universo</th>
+      <td mat-cell *matCellDef="let hero">{{ hero.universe }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <!-- Estado de carga -->
+  <!-- <div *ngIf="isLoading()" class="text-center mt-2">Cargando héroes...</div> -->
+
+  <!-- Sin resultados -->
+  <!-- <div *ngIf="isEmpty()" class="text-center mt-2">No se encontraron héroes</div> -->
+
+  <!-- Error -->
+  <!-- <div *ngIf="errorMessage()" class="text-center text-red-500 mt-2"> -->
+    <!-- {{ errorMessage() }} -->
+  <!-- </div> -->
+</section>
