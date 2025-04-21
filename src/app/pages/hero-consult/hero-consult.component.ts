@@ -2,14 +2,13 @@ import { Component, inject, signal } from '@angular/core';
 import { HeroListComponent } from "../../hero/components/hero-list/hero-list.component";
 import { rxResource } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '@shared/navbar/navbar.component';
 import {MatIconModule} from '@angular/material/icon';
 import { HeroService } from '@service-hero/hero.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-hero-consult',
-  imports: [HeroListComponent, CommonModule, NavbarComponent, MatIconModule, RouterModule],
+  imports: [HeroListComponent, CommonModule, MatIconModule, RouterModule],
   templateUrl: './hero-consult.component.html',
   styleUrl: './hero-consult.component.css'
 })
