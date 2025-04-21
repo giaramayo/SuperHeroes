@@ -2,7 +2,10 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@shared/*": ["./src/app/shared/*"]
+      "@shared/*": ["./src/app/shared/*"],
+      "@interface-hero/*": ["./src/app/hero/interface/*"],
+      "@data-hero/*": ["./src/assets/*"],
+      "@service-hero/*": ["./src/app/hero/services/*"],
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

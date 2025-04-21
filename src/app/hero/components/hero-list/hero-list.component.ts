@@ -1,7 +1,7 @@
 import { Component, computed, input } from '@angular/core';
-import { Hero } from '../../interface/hero.interface';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
+import { Hero } from '@interface-hero/hero.interface';
 
 @Component({
   selector: 'app-hero-list',

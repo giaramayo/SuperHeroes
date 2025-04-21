@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
-import { Hero } from '../interface/hero.interface';
-import heroesData from '../../../assets/heroes.json';
+import { map, catchError } from 'rxjs/operators';
+import heroesData from '@data-hero/heroes.json';
+import { Hero } from '@interface-hero/hero.interface';
 
 @Injectable({
   providedIn: 'root',

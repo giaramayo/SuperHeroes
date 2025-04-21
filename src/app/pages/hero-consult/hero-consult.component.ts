@@ -1,10 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { HeroListComponent } from "../../hero/components/hero-list/hero-list.component";
-import { HeroService } from '../../hero/services/hero.service';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '@shared/navbar/navbar.component';
 import {MatIconModule} from '@angular/material/icon';
+import { HeroService } from '@service-hero/hero.service';
 
 @Component({
   selector: 'app-hero-consult',
