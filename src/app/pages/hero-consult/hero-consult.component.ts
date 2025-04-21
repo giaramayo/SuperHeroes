@@ -16,6 +16,7 @@ export class HeroConsultComponent {
 
   idValue = signal('');
   nameValue = signal('');
+  search = signal(false);
   query = signal<{ id?: string; name?: string }>({});
 
   heroResource = rxResource({
@@ -30,6 +31,7 @@ export class HeroConsultComponent {
   });
 
   emitSearch() {
+    this.search.set(true);
     this.query.set({
       id: this.idValue().trim() || undefined,
       name: this.nameValue().trim() || undefined
@@ -40,6 +42,7 @@ export class HeroConsultComponent {
   deleteSearch() {
     this.idValue.set('');
     this.nameValue.set('');
+    this.search.set(false);
     this.query.set({});
     this.heroResource.reload();
   }

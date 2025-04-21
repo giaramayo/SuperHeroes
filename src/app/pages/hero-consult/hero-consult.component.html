@@ -6,7 +6,7 @@
   <input matInput type="text" class="input input-bordered w-80" placeholder="Buscar por Nombre" [value]="nameValue()"
     (input)="nameValue.set($any($event.target).value)" />
   <button class="btn btn-info" (click)="emitSearch()" [disabled]="!(nameValue()|| idValue())">Buscar</button>
-  <button class="btn btn-ghost" (click)="deleteSearch()" *ngIf="nameValue() || idValue()">Limpiar Filtro</button>
+  <button class="btn btn-ghost" (click)="deleteSearch()" *ngIf="search()">Limpiar Filtro</button>
 </section>
 
 <app-hero-list [heroes]="heroResource.value() ?? []" [errorMessage]="heroResource.error()"
