@@ -19,8 +19,15 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #ffffffc9; /* Transparencia del fondo */
+      background-color: #141c23de; /* Transparencia del fondo */
       z-index: 9999; /* sobre el contenido */
+    }
+    .translucid-overlay {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
     }
  `,
   changeDetection: ChangeDetectionStrategy.OnPush,

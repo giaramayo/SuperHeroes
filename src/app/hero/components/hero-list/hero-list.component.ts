@@ -1,4 +1,4 @@
-import { Component, computed, effect, input, signal, ViewChild } from '@angular/core';
+import { Component, computed, input, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { Hero } from '@interface-hero/hero.interface';
@@ -6,6 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { NotFoundComponent } from "../../../shared/not-found/not-found.component";
+import { LoadingSpinnerOverlayComponent } from "../../../shared/loading-spinner-overlay/loading-spinner-overlay.component";
 
 @Component({
   selector: 'app-hero-list',
@@ -15,8 +17,10 @@ import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/p
     MatTableModule,
     MatIconModule,
     MatTooltipModule,
-    MatPaginatorModule
-  ],
+    MatPaginatorModule,
+    NotFoundComponent,
+    LoadingSpinnerOverlayComponent
+],
   templateUrl: './hero-list.component.html',
   styles: `
    .color-page {
@@ -32,22 +36,20 @@ export class HeroListComponent {
   isEmpty = input<boolean>(false);
 
   displayedColumns = ['id', 'name', 'power', 'universe', 'actions'];
-  dataSource = signal(new MatTableDataSource<Hero>([]));
 
-  filteredHeroes = computed(() => {
-    return this.heroes();
+  dataSource = computed(() => {
+    const heroesList = this.heroes();
+    const dataSource = new MatTableDataSource<Hero>(heroesList);
+    if (this.paginator) {
+      dataSource.paginator = this.paginator;
+    }
+    return dataSource;
   });
 
-  constructor() {
-    effect(() => {
-      const heroesList = this.heroes();
-      const table = new MatTableDataSource<Hero>(heroesList);
-      table.paginator = this.paginator;
-      this.dataSource.set(table);
-    });
-  }
+  filteredHeroes = computed(() => this.heroes());
+
   ngAfterViewInit() {
-    this.dataSource().paginator = this.paginator;
+    this.dataSource();
   }
 
   onPageChanged(event: PageEvent) {
@@ -62,5 +64,4 @@ export class HeroListComponent {
       this.dataSource().paginator?.firstPage();
     }
   }
-
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, delay } from 'rxjs/operators';
 import heroesData from '@data-hero/heroes.json';
 import { Hero } from '@interface-hero/hero.interface';
 
@@ -31,6 +31,7 @@ export class HeroService {
           return matchesId && matchesName;
         });
       }),
+      delay(1500), // para probar spinner
       catchError((error) => {
         console.error('Error buscando héroes:', error);
         return throwError(() => new Error('No se pudieron buscar héroes'));
