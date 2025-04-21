@@ -1,14 +1,13 @@
 <div class="collapse-title text-xl font-medium text-center w-full">Héroes!</div>
 
-<app-hero-search-input
-  placeholder="Buscar héroe por nombre o ID"
-  [initialValue]="query()"
-  (value)="query.set($event)"
-/>
+<section class="flex flex-row gap-2 mt-2">
+  <input matInput type="text" class="input input-bordered w-56" placeholder="Buscar por ID" [value]="idValue()"
+    (input)="idValue.set($any($event.target).value)" />
+  <input matInput type="text" class="input input-bordered w-80" placeholder="Buscar por Nombre" [value]="nameValue()"
+    (input)="nameValue.set($any($event.target).value)" />
+  <button class="btn btn-info" (click)="emitSearch()" [disabled]="!(nameValue()|| idValue())">Buscar</button>
+  <button class="btn btn-ghost" (click)="deleteSearch()" *ngIf="nameValue() || idValue()">Limpiar Filtro</button>
+</section>
 
-<app-hero-list
-  [heroes]="heroResource.value() ?? []"
-  [errorMessage]="heroResource.error()"
-  [isEmpty]="heroResource.value()?.length === 0"
-  [isLoading]="heroResource.isLoading()"
-/>
+<app-hero-list [heroes]="heroResource.value() ?? []" [errorMessage]="heroResource.error()"
+  [isEmpty]="heroResource.value()?.length === 0" [isLoading]="heroResource.isLoading()" />
