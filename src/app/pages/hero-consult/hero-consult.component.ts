@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '@shared/navbar/navbar.component';
 import {MatIconModule} from '@angular/material/icon';
 import { HeroService } from '@service-hero/hero.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-hero-consult',
-  imports: [HeroListComponent, CommonModule, NavbarComponent, MatIconModule],
+  imports: [HeroListComponent, CommonModule, NavbarComponent, MatIconModule, RouterModule],
   templateUrl: './hero-consult.component.html',
   styleUrl: './hero-consult.component.css'
 })

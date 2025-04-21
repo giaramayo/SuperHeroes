@@ -3,70 +3,120 @@
     "id": "1",
     "name": "Superman",
     "power": "Fuerza sobrehumana, vuelo, visión láser",
-    "universe": "DC",
-    "images": "https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png"
+    "universe": "DC"
   },
   {
     "id": "2",
     "name": "Batman",
     "power": "Intelecto, artes marciales, tecnología",
-    "universe": "DC",
-    "images": "https://upload.wikimedia.org/wikipedia/en/8/88/Batman_BenAffleck.jpg"
+    "universe": "DC"
   },
   {
     "id": "3",
     "name": "Wonder Woman",
     "power": "Fuerza sobrehumana, agilidad, lazo de la verdad",
-    "universe": "DC",
-    "images": "https://upload.wikimedia.org/wikipedia/en/e/ed/Wonder_Woman_%282017_film%29.jpg"
+    "universe": "DC"
   },
   {
     "id": "4",
     "name": "Iron Man",
     "power": "Armadura tecnológica, inteligencia superior",
-    "universe": "Marvel",
-    "images": "https://upload.wikimedia.org/wikipedia/en/e/e0/Iron_Man_bleeding_edge.jpg"
+    "universe": "Marvel"
   },
   {
     "id": "5",
     "name": "Spider-Man",
     "power": "Agilidad, telarañas, sentido arácnido",
-    "universe": "Marvel",
-    "images": "https://upload.wikimedia.org/wikipedia/en/0/0c/Spiderman50.jpg"
+    "universe": "Marvel"
   },
   {
     "id": "6",
     "name": "Captain America",
     "power": "Fuerza aumentada, escudo invulnerable",
-    "universe": "Marvel",
-    "images": "https://upload.wikimedia.org/wikipedia/en/9/91/CaptainAmerica109.jpg"
+    "universe": "Marvel"
   },
   {
     "id": "7",
     "name": "Thor",
     "power": "Dios del trueno, Mjolnir, inmortalidad",
-    "universe": "Marvel",
-    "images": "https://upload.wikimedia.org/wikipedia/en/4/41/Thor-272.jpg"
+    "universe": "Marvel"
   },
   {
     "id": "8",
     "name": "Black Panther",
     "power": "Habilidad de combate, traje de vibranium",
-    "universe": "Marvel",
-    "images": "https://upload.wikimedia.org/wikipedia/en/9/9f/Black_Panther_OS_Vol_1_2.png"
+    "universe": "Marvel"
   },
   {
     "id": "9",
     "name": "Flash",
     "power": "Velocidad sobrehumana, manipulación del tiempo",
-    "universe": "DC",
-    "images": "https://upload.wikimedia.org/wikipedia/en/e/ed/Flash_Family.jpg"
+    "universe": "DC"
   },
   {
     "id": "10",
     "name": "Hulk",
     "power": "Fuerza ilimitada, regeneración",
-    "universe": "Marvel",
-    "images": "https://upload.wikimedia.org/wikipedia/en/5/59/Hulk_%28comics_character%29.png"
+    "universe": "Marvel"
+  },
+  {
+    "id": "11",
+    "name": "Green Lantern",
+    "power": "Anillo de poder, voluntad indomable",
+    "universe": "DC"
+  },
+  {
+    "id": "12",
+    "name": "Aquaman",
+    "power": "Telepatía marina, fuerza, control del agua",
+    "universe": "DC"
+  },
+  {
+    "id": "13",
+    "name": "Doctor Strange",
+    "power": "Magia, manipulación del tiempo y espacio",
+    "universe": "Marvel"
+  },
+  {
+    "id": "14",
+    "name": "Scarlet Witch",
+    "power": "Manipulación de la realidad, magia del caos",
+    "universe": "Marvel"
+  },
+  {
+    "id": "15",
+    "name": "Vision",
+    "power": "Intangibilidad, rayo mental, súper fuerza",
+    "universe": "Marvel"
+  },
+  {
+    "id": "16",
+    "name": "Hawkeye",
+    "power": "Puntería perfecta, combate cuerpo a cuerpo",
+    "universe": "Marvel"
+  },
+  {
+    "id": "17",
+    "name": "Black Widow",
+    "power": "Espionaje, combate cuerpo a cuerpo",
+    "universe": "Marvel"
+  },
+  {
+    "id": "18",
+    "name": "Ant-Man",
+    "power": "Cambio de tamaño, comunicación con insectos",
+    "universe": "Marvel"
+  },
+  {
+    "id": "19",
+    "name": "Wasp",
+    "power": "Vuelo, rayos bioeléctricos",
+    "universe": "Marvel"
+  },
+  {
+    "id": "20",
+    "name": "Cyborg",
+    "power": "Tecnología alienígena, súper fuerza",
+    "universe": "DC"
   }
 ]

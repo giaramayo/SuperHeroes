@@ -16,5 +16,8 @@
   </div>
 </section>
 
-<app-hero-list [heroes]="heroResource.value() ?? []" [errorMessage]="heroResource.error()"
-  [isEmpty]="heroResource.value()?.length === 0" [isLoading]="heroResource.isLoading()" />
+<app-hero-list
+  [heroes]="heroResource.value() ?? []"
+  [errorMessage]="heroResource.error()"
+  [isEmpty]="heroResource.value()?.length === 0"
+  [isLoading]="heroResource.isLoading()" />
