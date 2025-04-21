@@ -3,11 +3,12 @@ import { HeroListComponent } from "../../hero/components/hero-list/hero-list.com
 import { HeroService } from '../../hero/services/hero.service';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from "../../shared/navbar/navbar.component";
+import { NavbarComponent } from '@shared/navbar/navbar.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-hero-consult',
-  imports: [HeroListComponent, CommonModule, NavbarComponent],
+  imports: [HeroListComponent, CommonModule, NavbarComponent, MatIconModule],
   templateUrl: './hero-consult.component.html',
   styleUrl: './hero-consult.component.css'
 })

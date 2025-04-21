@@ -1,12 +1,19 @@
 <app-navbar />
 
-<section class="flex flex-row gap-2 mt-2">
-  <input matInput type="text" class="input input-bordered w-56" placeholder="Buscar por ID" [value]="idValue()"
-    (input)="idValue.set($any($event.target).value)" />
-  <input matInput type="text" class="input input-bordered w-80" placeholder="Buscar por Nombre" [value]="nameValue()"
-    (input)="nameValue.set($any($event.target).value)" />
-  <button class="btn btn-info" (click)="emitSearch()" [disabled]="!(nameValue()|| idValue())">Buscar</button>
-  <button class="btn btn-ghost" (click)="deleteSearch()" *ngIf="search()">Limpiar Filtro</button>
+<section class="flex flex-row gap-2 mt-2" style="width: 100%;">
+  <div class="flex flex-row gap-2" style="flex: 70%;">
+    <input matInput type="number" class="input input-bordered w-56" placeholder="Buscar por ID" [value]="idValue()" (input)="idValue.set($any($event.target).value)" />
+    <input matInput type="text" class="input input-bordered w-80" placeholder="Buscar por Nombre" [value]="nameValue()"
+           (input)="nameValue.set($any($event.target).value.toUpperCase())"/>
+    <button class="btn btn-info" (click)="emitSearch()" [disabled]="!(nameValue()|| idValue())">Buscar</button>
+    <button class="btn btn-ghost" (click)="deleteSearch()" *ngIf="search()">Limpiar Filtro</button>
+  </div>
+  <div class="flex flex-row-reverse mt-auto" style="flex: 20%;">
+    <button class="btn btn-accent" routerLink="/formulariohero">
+      <mat-icon>add</mat-icon>
+      Nuevo Héroe
+    </button>
+  </div>
 </section>
 
 <app-hero-list [heroes]="heroResource.value() ?? []" [errorMessage]="heroResource.error()"

@@ -1,10 +1,12 @@
 import { Component, computed, input } from '@angular/core';
 import { Hero } from '../../interface/hero.interface';
 import { MatTableModule } from '@angular/material/table';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-hero-list',
   imports: [
+    CommonModule,
     MatTableModule,
   ],
   templateUrl: './hero-list.component.html',
