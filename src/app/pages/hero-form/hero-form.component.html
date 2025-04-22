@@ -1,1 +1,39 @@
-<p>hero-form works!</p>
+<div class="hero bg-base-200 min-h-screen">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <img
+      src="https://images.unsplash.com/photo-1612916628677-475f676a6adf?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      class="max-w-sm rounded-lg shadow-2xl" />
+    <div>
+      <h1 class="text-5xl font-bold">{{!isEditMode ? 'Nuevo' : 'Editar'}} Héroe!</h1>
+
+      <form [formGroup]="heroForm" (ngSubmit)="onSubmit()" class="mat-form-container">
+        <mat-form-field class="full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name" placeholder="Escribe tu nombre">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Superpoder</mat-label>
+          <input matInput formControlName="power" placeholder="Escribe tu superpoder">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Universo</mat-label>
+          <mat-select formControlName="universe">
+            <mat-option value="marvel">Marvel</mat-option>
+            <mat-option value="dc">DC</mat-option>
+            <mat-option value="otro">Otro</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+       <div class="form-buttons">
+          <button class="btn btn-outline" type="submit" [disabled]="heroForm.invalid">
+            {{ isEditMode ? 'Actualizar' : 'Guardar' }}
+          </button>
+          <button class="btn btn-outline btn-accent" type="button" (click)="onDelete()" *ngIf="isEditMode">Eliminar</button>
+          <button class="btn btn-active btn-ghost" type="button" (click)="routerHome()">Volver</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

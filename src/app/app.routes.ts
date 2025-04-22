@@ -5,7 +5,8 @@ import { HeroFormComponent } from './pages/hero-form/hero-form.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'superheroes', component: HeroConsultComponent },
-  { path: 'formulariohero', component: HeroFormComponent },
+  { path: 'heroes', component: HeroConsultComponent },
+  { path: 'nuevohero', component: HeroFormComponent },
+  { path: 'edithero/:id', component: HeroFormComponent },
   { path: '**', redirectTo: '' },
 ];

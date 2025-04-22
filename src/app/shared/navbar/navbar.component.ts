@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
         </a>
       </div>
       <div routerLink="/" class="navbar-center">
-        <a class="btn btn-ghost text-xl">Heroe!</a>
+        <a class="btn btn-ghost text-xl">Héroe!</a>
       </div>
       <div class="navbar-end">
         <div class="w-12"></div>
