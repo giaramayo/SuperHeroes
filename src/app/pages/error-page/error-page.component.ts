@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { HeroPageComponent } from "../../hero/components/hero-page/hero-page.component";
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-error-page',
   imports: [HeroPageComponent],
-  templateUrl: './home.component.html'
+  templateUrl: './error-page.component.html'
 })
-export class HomeComponent { }
+export class ErrorPageComponent { }

@@ -1,0 +1,12 @@
+<div class="hero min-h-screen" [style.background-image]="'url(' + urlImage() + ')'">
+  <div class="hero-overlay bg-opacity-60"></div>
+  <div class="hero-content text-neutral-content text-center" style="margin-bottom: 25em;">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-5xl font-bold">{{ title() }}</h1>
+      <p class="mb-5">{{ mensaje() }}</p>
+      @if(button()) {
+        <button [routerLink]="urlButton()" class="btn btn-info">{{ button() }}</button>
+      }
+    </div>
+  </div>
+</div>

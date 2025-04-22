@@ -1,13 +1,5 @@
-<div class="hero min-h-screen"
-  style="background-image: url(https://images.unsplash.com/photo-1611604548018-d56bbd85d681?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
-  <div class="hero-overlay bg-opacity-60"></div>
-  <div class="hero-content text-neutral-content text-center" style="margin-bottom: 25em;">
-    <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold">Héroe!</h1>
-      <p class="mb-5">
-        Bienvenido a esta aplicación donde podras visualizar, crear y editar superhéroes de manera dinámica.
-      </p>
-      <button routerLink="/heroes" class="btn btn-info">Iniciar</button>
-    </div>
-  </div>
-</div>
+<app-hero-page
+  [urlImage]="'https://images.unsplash.com/photo-1611604548018-d56bbd85d681?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'"
+  [title]="'Héroe!'"
+  [mensaje]="'Bienvenido a esta aplicación donde podras visualizar, crear y editar superhéroes de manera dinámica.'"
+  [button]="'Iniciar'" [urlButton]="'/heroes'" />
