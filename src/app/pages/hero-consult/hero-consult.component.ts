@@ -8,6 +8,7 @@ import { Router, RouterModule } from '@angular/router';
 import { ValidateAction } from '@interface-hero/validate-data.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogContentDialog } from '@shared/dialog-content/dialog-content.component';
+import { NotificationService } from '@service-hero/notification.service';
 
 @Component({
   selector: 'app-hero-consult',
@@ -23,6 +24,7 @@ export class HeroConsultComponent {
   query = signal<{ id?: string; name?: string }>({});
 
   readonly heroService = inject(HeroService);
+  readonly notification = inject(NotificationService);
   readonly router = inject(Router);
   readonly dialog = inject(MatDialog);
 
@@ -73,11 +75,11 @@ export class HeroConsultComponent {
         if (result && id) {
           this.heroService.deleteHero(id).subscribe({
             next: () => {
-             console.log('Héroe eliminado:', id);
+             this.notification.notificationSuccess('Héroe eliminado correctamente', 'Éxito');
              this.heroResource.reload();
             },
             error: (err) => {
-              console.error('Error al eliminar héroe:', err.message);
+              this.notification.notificationError('Error al eliminar héroe', 'Error');
             }
           });
         }

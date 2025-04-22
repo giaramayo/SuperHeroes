@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HeroService } from '@service-hero/hero.service';
+import { NotificationService } from '@service-hero/notification.service';
 import { DialogContentDialog } from '@shared/dialog-content/dialog-content.component';
 
 @Component({
@@ -22,6 +23,7 @@ export class HeroFormComponent implements OnInit {
 
   readonly dialog = inject(MatDialog);
   readonly heroService = inject(HeroService);
+  readonly notification = inject(NotificationService);
   readonly fb = inject(FormBuilder);
   readonly router = inject(Router);
   readonly route = inject(ActivatedRoute);
@@ -40,8 +42,10 @@ export class HeroFormComponent implements OnInit {
       this.heroId = id;
       this.heroService.getHeroById(id).subscribe(hero => {
         if (hero) {
-          console.log('Héroe encontrado:', hero);
           this.heroForm.patchValue(hero);
+        } else {
+          this.notification.notificationWarning('No se encontró el héroe', 'Héroe NO encontrado:');
+          this.routerHome();
         }
       });
     }
@@ -53,10 +57,11 @@ export class HeroFormComponent implements OnInit {
       if (this.isEditMode) {
         this.heroService.updateHero(heroData).subscribe({
           next: (updatedHero) => {
+            this.notification.notificationSuccess('Héroe actualizado correctamente', 'Éxito:');
             this.routerHome();
           },
           error: (err) => {
-            console.error('Error al actualizar el héroe:', err.message);
+            this.notification.notificationError('Error al actualizar el héroe', 'Error:');
           }
         });
       } else {
@@ -67,11 +72,11 @@ export class HeroFormComponent implements OnInit {
 
         this.heroService.createHero(newHero).subscribe({
           next: (createdHero) => {
-            console.log('Héroe creado:', createdHero);
+            this.notification.notificationSuccess('Héroe creado correctamente', 'Éxito:');
             this.routerHome();
           },
           error: (err) => {
-            console.error('Error al crear el héroe:', err.message);
+            this.notification.notificationError('Error al crear el héroe', 'Error:');
           }
         });
       }
@@ -90,11 +95,12 @@ export class HeroFormComponent implements OnInit {
       if (result && this.heroId) {
         this.heroService.deleteHero(this.heroId).subscribe({
           next: () => {
+            this.notification.notificationSuccess('Héroe eliminado correctamente', 'Éxito:');
             this.heroForm.reset();
             this.routerHome();
           },
           error: (err) => {
-            console.error('Error al eliminar héroe:', err.message);
+            this.notification.notificationError('Error al eliminar héroe', 'Error:');
           }
         });
       }
