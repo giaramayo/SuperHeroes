@@ -16,7 +16,7 @@ Una aplicación que gestiona una lista de héroes, permitiendo realizar acciones
 
 ¡Haz clic en la siguiente imagen para ver una demostración en vivo de la aplicación!
 
-[![Demo](https://raw.githubusercontent.com/giaramayo/SuperHeroes/main/demo.png)](https://giaramayo.github.io/SuperHeroes/)
+[![Demo](https://raw.githubusercontent.com/giaramayo/SuperHeroes/main/assets/demo.png)](https://giaramayo.github.io/SuperHeroes/)
 
 ---
 
