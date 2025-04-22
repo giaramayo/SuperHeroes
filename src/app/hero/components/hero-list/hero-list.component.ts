@@ -55,6 +55,10 @@ export class HeroListComponent {
     this.dataSource();
   }
 
+  ngOnChanges() {
+    this.dataSource().data = this.heroes();
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource().filter = filterValue.trim().toLowerCase();

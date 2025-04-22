@@ -51,8 +51,7 @@ export class HeroConsultComponent {
     this.idValue.set('');
     this.nameValue.set('');
     this.search.set(false);
-    //this.query.set({});
-    this.query.set({ id: undefined, name: undefined });
+    this.query.set({});
     this.heroResource.reload();
   }
 
@@ -75,7 +74,7 @@ export class HeroConsultComponent {
           this.heroService.deleteHero(id).subscribe({
             next: () => {
              console.log('Héroe eliminado:', id);
-             this.deleteSearch();
+             this.heroResource.reload();
             },
             error: (err) => {
               console.error('Error al eliminar héroe:', err.message);
