@@ -67,7 +67,7 @@ export class HeroFormComponent implements OnInit {
       } else {
         const newHero = {
           ...heroData,
-          id: Math.floor(Math.random() * 1000)
+          id: Math.floor(Math.random() * 1000).toString(),
         };
 
         this.heroService.createHero(newHero).subscribe({
