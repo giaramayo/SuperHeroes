@@ -5,7 +5,8 @@ import { Hero } from '@interface-hero/hero.interface';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
-import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 import { NotFoundComponent } from "../../../shared/not-found/not-found.component";
 import { LoadingSpinnerOverlayComponent } from "../../../shared/loading-spinner-overlay/loading-spinner-overlay.component";
 import { ValidateAction } from '@interface-hero/validate-data.interface';
@@ -20,6 +21,7 @@ import { ValidateAction } from '@interface-hero/validate-data.interface';
     MatTooltipModule,
     MatPaginatorModule,
     NotFoundComponent,
+    MatSortModule,
     LoadingSpinnerOverlayComponent
 ],
   templateUrl: './hero-list.component.html',
@@ -30,6 +32,7 @@ import { ValidateAction } from '@interface-hero/validate-data.interface';
 })
 export class HeroListComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   heroes = input.required<Hero[]>();
   errorMessage = input<string | unknown | null>();
@@ -45,6 +48,7 @@ export class HeroListComponent {
     const dataSource = new MatTableDataSource<Hero>(heroesList);
     if (this.paginator) {
       dataSource.paginator = this.paginator;
+      dataSource.sort = this.sort;
     }
     return dataSource;
   });
