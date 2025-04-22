@@ -4,7 +4,10 @@ import { rxResource } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 import { HeroService } from '@service-hero/hero.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { ValidateAction } from '@interface-hero/validate-data.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogContentDialog } from '@shared/dialog-content/dialog-content.component';
 
 @Component({
   selector: 'app-hero-consult',
@@ -14,12 +17,14 @@ import { RouterModule } from '@angular/router';
 })
 export class HeroConsultComponent {
 
-  private heroService = inject(HeroService);
-
   idValue = signal('');
   nameValue = signal('');
   search = signal(false);
   query = signal<{ id?: string; name?: string }>({});
+
+  readonly heroService = inject(HeroService);
+  readonly router = inject(Router);
+  readonly dialog = inject(MatDialog);
 
   heroResource = rxResource({
     request: () => this.query(),
@@ -34,10 +39,11 @@ export class HeroConsultComponent {
 
   emitSearch() {
     this.search.set(true);
-    this.query.set({
+    const newQuery = {
       id: this.idValue().trim() || undefined,
       name: this.nameValue().trim() || undefined
-    });
+    };
+    this.query.set({ ...newQuery });
     this.heroResource.reload();
   }
 
@@ -45,7 +51,37 @@ export class HeroConsultComponent {
     this.idValue.set('');
     this.nameValue.set('');
     this.search.set(false);
-    this.query.set({});
+    //this.query.set({});
+    this.query.set({ id: undefined, name: undefined });
     this.heroResource.reload();
   }
+
+  accionHero(accion: ValidateAction) {
+    if (accion.isEdit)
+      this.router.navigate(['/edithero', accion.id]);
+    else
+      this.onDelete(accion.id);
+  }
+
+  onDelete(id: string): void {
+      const dialogRef = this.dialog.open(DialogContentDialog, {
+        data: {
+          title: 'Eliminar héroe',
+          message: '¿Está seguro que desea eliminar este héroe?',
+        }
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result && id) {
+          this.heroService.deleteHero(id).subscribe({
+            next: () => {
+             console.log('Héroe eliminado:', id);
+             this.deleteSearch();
+            },
+            error: (err) => {
+              console.error('Error al eliminar héroe:', err.message);
+            }
+          });
+        }
+      });
+    }
 }

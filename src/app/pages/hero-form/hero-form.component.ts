@@ -40,6 +40,7 @@ export class HeroFormComponent implements OnInit {
       this.heroId = id;
       this.heroService.getHeroById(id).subscribe(hero => {
         if (hero) {
+          console.log('Héroe encontrado:', hero);
           this.heroForm.patchValue(hero);
         }
       });
@@ -61,7 +62,7 @@ export class HeroFormComponent implements OnInit {
       } else {
         const newHero = {
           ...heroData,
-          id: Math.floor(Math.random() * 10)
+          id: Math.floor(Math.random() * 1000)
         };
 
         this.heroService.createHero(newHero).subscribe({

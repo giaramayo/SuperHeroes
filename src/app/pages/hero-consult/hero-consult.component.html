@@ -8,7 +8,7 @@
       <button class="btn btn-ghost" (click)="deleteSearch()" *ngIf="search()">Limpiar Filtro</button>
     </div>
     <div class="flex flex-row-reverse mt-auto" style="flex: 20%;">
-      <button class="btn btn-outline btn-accent"routerLink="/nuevohero"><mat-icon>add</mat-icon>Nuevo</button>
+      <button class="btn btn-outline btn-accent"routerLink="/nuevohero"><mat-icon>add</mat-icon>Añadir</button>
     </div>
   </section>
 
@@ -16,6 +16,8 @@
     [heroes]="heroResource.value() ?? []"
     [errorMessage]="heroResource.error()"
     [isEmpty]="heroResource.value()?.length === 0"
-    [isLoading]="heroResource.isLoading()" />
+    [isLoading]="heroResource.isLoading()"
+    (onActionHero)="accionHero($event)"
+  />
 </div>
 

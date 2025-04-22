@@ -75,6 +75,7 @@ export class HeroService {
   }
 
   deleteHero(id: string): Observable<boolean> {
+    console.log('Eliminando héroe con ID:', id);
     const index = this.heroesCache.findIndex(h => h.id === id);
     if (index >= 0) {
       this.heroesCache.splice(index, 1);

@@ -1,4 +1,4 @@
-import { Component, computed, input, ViewChild } from '@angular/core';
+import { Component, computed, input, output, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { Hero } from '@interface-hero/hero.interface';
@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { NotFoundComponent } from "../../../shared/not-found/not-found.component";
 import { LoadingSpinnerOverlayComponent } from "../../../shared/loading-spinner-overlay/loading-spinner-overlay.component";
+import { ValidateAction } from '@interface-hero/validate-data.interface';
 
 @Component({
   selector: 'app-hero-list',
@@ -35,6 +36,8 @@ export class HeroListComponent {
   isLoading = input<boolean>(false);
   isEmpty = input<boolean>(false);
 
+  onActionHero = output<ValidateAction>();
+
   displayedColumns = ['id', 'name', 'power', 'universe', 'actions'];
 
   dataSource = computed(() => {
@@ -60,4 +63,9 @@ export class HeroListComponent {
       this.dataSource().paginator?.firstPage();
     }
   }
+
+  accionHero(id: string, isEdit: boolean) {
+    this.onActionHero.emit({ id, isEdit });
+  }
+
 }

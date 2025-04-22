@@ -20,17 +20,19 @@
         <mat-form-field class="full-width">
           <mat-label>Universo</mat-label>
           <mat-select formControlName="universe">
-            <mat-option value="marvel">Marvel</mat-option>
-            <mat-option value="dc">DC</mat-option>
-            <mat-option value="otro">Otro</mat-option>
+            <mat-option value="Marvel">Marvel</mat-option>
+            <mat-option value="DC">DC</mat-option>
+            <mat-option value="Otro">Otro</mat-option>
           </mat-select>
         </mat-form-field>
 
        <div class="form-buttons">
-          <button class="btn btn-outline" type="submit" [disabled]="heroForm.invalid">
+          <button class="btn btn-outline" type="submit"  [disabled]="heroForm.invalid || heroForm.pristine">
             {{ isEditMode ? 'Actualizar' : 'Guardar' }}
           </button>
-          <button class="btn btn-outline btn-accent" type="button" (click)="onDelete()" *ngIf="isEditMode">Eliminar</button>
+          @if(isEditMode) {
+            <button class="btn btn-outline btn-accent" type="button" (click)="onDelete()">Eliminar</button>
+          }
           <button class="btn btn-active btn-ghost" type="button" (click)="routerHome()">Volver</button>
         </div>
       </form>
