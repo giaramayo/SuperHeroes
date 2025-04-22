@@ -16,15 +16,18 @@ Una aplicación que gestiona una lista de héroes, permitiendo realizar acciones
 
 ¡Haz clic en la siguiente imagen para ver una demostración en vivo de la aplicación!
 
+[![Demo](https://raw.githubusercontent.com/giaramayo/SuperHeroes/main/demo.png)](https://giaramayo.github.io/SuperHeroes/)
 
 ---
 
 ## Tecnologías Utilizadas
 
-- **Frontend**: Angular 18, Angular Material
-- **Gestión de Estado**: NgRx (para manejar el estado de los héroes)
+- **Frontend**:  Angular 19, Angular Material, TailwindCSS, DaisyUI
+- **Gestión de Estado**: NgRx Signals (manejo reactivo del estado de los héroes)
 - **Formularios**: Angular Reactive Forms para gestionar las interacciones de usuario
+- **Estilos y Diseño**: TailwindCSS, DaisyUI para UI moderna y responsiva
 - **Paquetes**: @ng-idle/keepalive, MatTable, MatSort, MatPaginator
+- **Despliegue**: GitHub Pages utilizando angular-cli-ghpages
 
 ---
 
