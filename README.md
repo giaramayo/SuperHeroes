@@ -1,6 +1,6 @@
 # Proyecto de Heroes
 
-Una aplicación que gestiona una lista de héroes, permitiendo realizar acciones como ordenar, filtrar y editar los héroes, todo con una interfaz de usuario interactiva y atractiva.
+Una aplicación que gestiona una lista de héroes, permitiendo realizar acciones como ordenar, filtrar y editar los héroes.
 
 ---
 
