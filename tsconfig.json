@@ -6,6 +6,7 @@
       "@interface-hero/*": ["./src/app/hero/interface/*"],
       "@data-hero/*": ["./src/assets/*"],
       "@service-hero/*": ["./src/app/hero/services/*"],
+      "@directiva/*": ["./src/app/hero/directive/*"],
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

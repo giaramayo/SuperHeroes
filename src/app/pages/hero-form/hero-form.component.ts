@@ -5,10 +5,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UppercaseDirective } from '@directiva/uppercase.directive';
 import { HeroService } from '@service-hero/hero.service';
 import { NotificationService } from '@service-hero/notification.service';
 import { DialogContentDialog } from '@shared/dialog-content/dialog-content.component';
-import { UppercaseDirective } from '../../hero/directive/uppercase.directive';
 
 @Component({
   selector: 'app-hero-form',
