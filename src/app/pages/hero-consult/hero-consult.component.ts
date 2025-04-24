@@ -13,8 +13,7 @@ import { NotificationService } from '@service-hero/notification.service';
 @Component({
   selector: 'app-hero-consult',
   imports: [HeroListComponent, CommonModule, MatIconModule, RouterModule],
-  templateUrl: './hero-consult.component.html',
-  styleUrl: './hero-consult.component.css'
+  templateUrl: './hero-consult.component.html'
 })
 export class HeroConsultComponent {
 

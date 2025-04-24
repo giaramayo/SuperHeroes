@@ -1,4 +1,4 @@
-import { Directive, HostListener } from '@angular/core';
+import { Directive, HostListener, inject } from '@angular/core';
 import { NgControl } from '@angular/forms';
 
 @Directive({
@@ -6,12 +6,17 @@ import { NgControl } from '@angular/forms';
 })
 export class UppercaseDirective {
 
-  constructor(private ngControl: NgControl) { }
+  private ngControl = inject(NgControl);
 
-  ngOnInit(): void {
-    const value = this.ngControl.control?.value;
+  ngAfterViewInit(): void {
+    this.updateValueToUppercase();
+  }
+
+  private updateValueToUppercase(): void {
+    const control = this.ngControl.control;
+    const value = control?.value;
     if (value && typeof value === 'string') {
-      this.ngControl.control?.setValue(value.toUpperCase(), { emitEvent: false });
+      control?.setValue(value.toUpperCase(), { emitEvent: false });
     }
   }
 
