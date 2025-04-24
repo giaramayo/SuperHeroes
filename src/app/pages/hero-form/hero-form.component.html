@@ -9,7 +9,7 @@
       <form [formGroup]="heroForm" (ngSubmit)="onSubmit()" class="mat-form-container">
         <mat-form-field class="full-width">
           <mat-label>Nombre</mat-label>
-          <input matInput formControlName="name" placeholder="Escribe tu nombre">
+          <input matInput formControlName="name" placeholder="Escribe tu nombre" appUppercase>
         </mat-form-field>
 
         <mat-form-field class="full-width">

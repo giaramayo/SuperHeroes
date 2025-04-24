@@ -8,11 +8,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HeroService } from '@service-hero/hero.service';
 import { NotificationService } from '@service-hero/notification.service';
 import { DialogContentDialog } from '@shared/dialog-content/dialog-content.component';
+import { UppercaseDirective } from '../../hero/directive/uppercase.directive';
 
 @Component({
   selector: 'app-hero-form',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, ReactiveFormsModule],
+  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, ReactiveFormsModule, UppercaseDirective],
   templateUrl: './hero-form.component.html',
   styleUrl: './hero-form.component.css'
 })
