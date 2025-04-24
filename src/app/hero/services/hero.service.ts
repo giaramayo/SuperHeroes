@@ -29,15 +29,17 @@ export class HeroService {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(this.heroesCache));
   }
 
+  // Retorna todos los héroes
   getAllHeroes(): Observable<Hero[]> {
     return of(this.heroesCache);
   }
-
+  // Retorna un héroe por ID
   getHeroById(id: string): Observable<Hero | undefined> {
     const hero = this.heroByIdCache.get(id);
     return hero ? of(hero) : throwError(() => new Error('Héroe no encontrado'));
   }
 
+  // Retorna un héroe por nombre
   searchHeroes(id?: string, name?: string): Observable<Hero[]> {
     return this.getAllHeroes().pipe(
       map((heroes) =>
@@ -55,6 +57,7 @@ export class HeroService {
     );
   }
 
+  // Crea un nuevo héroe
   createHero(newHero: Hero): Observable<Hero> {
     this.heroesCache.push(newHero);
     this.heroByIdCache.set(newHero.id, newHero);
@@ -62,6 +65,7 @@ export class HeroService {
     return of(newHero);
   }
 
+  // Actualiza un héroe existente
   updateHero(updatedHero: Hero): Observable<Hero> {
     const index = this.heroesCache.findIndex(h => h.id === updatedHero.id);
     if (index >= 0) {
@@ -70,10 +74,11 @@ export class HeroService {
       this.syncLocalStorage();
       return of(updatedHero);
     } else {
-      return throwError(() => new Error('Héroe no encontrado para actualizar'));
+      return throwError(() => new Error('No se encontro héroe para actualizar'));
     }
   }
 
+  // Elimina un héroe
   deleteHero(id: string): Observable<boolean> {
     console.log('Eliminando héroe con ID:', id);
     const index = this.heroesCache.findIndex(h => h.id === id);
