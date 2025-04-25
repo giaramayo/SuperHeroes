@@ -35,7 +35,7 @@ const MATERIAL = [MatTableModule, MatPaginatorModule, MatSortModule, MatTooltipM
               />`
 })
 
-class WrapperComponent {
+class HeroListaComponent {
   heroes = signal(heroesMock);
   errorMessage = signal<string | unknown | null>(null);
   isLoading = signal<boolean>(false);
@@ -47,17 +47,17 @@ class WrapperComponent {
 }
 
 describe('HeroListComponent', () => {
-  let fixture: ComponentFixture<WrapperComponent>;
-  let hostComponent: WrapperComponent;
+  let fixture: ComponentFixture<HeroListaComponent>;
+  let hostComponent: HeroListaComponent;
   const dataSource = signal<Hero[]>([]);
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WrapperComponent],
+      imports: [HeroListaComponent],
       providers: [provideAnimations()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(WrapperComponent);
+    fixture = TestBed.createComponent(HeroListaComponent);
     hostComponent = fixture.componentInstance;
   });
 

@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { HeroListComponent } from "../../hero/components/hero-list/hero-list.component";
 import { rxResource } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
@@ -38,6 +38,8 @@ export class HeroConsultComponent {
     },
   });
 
+  isLoading = computed(() => this.heroResource.isLoading());
+
   emitSearch() {
     this.search.set(true);
     const newQuery = {
@@ -72,12 +74,16 @@ export class HeroConsultComponent {
       });
       dialogRef.afterClosed().subscribe(result => {
         if (result && id) {
-          this.heroService.deleteHero(id).subscribe({
-            next: () => {
-             this.notification.notificationSuccess('Héroe eliminado correctamente', 'Éxito');
-             this.heroResource.reload();
+           this.heroService.deleteHero(id).subscribe({
+            next: (res) => {
+              if (res) {
+                this.notification.notificationSuccess('Héroe eliminado correctamente', 'Éxito');
+                this.heroResource.reload();
+              } else {
+                this.notification.notificationError('Error al eliminar héroe', 'Error');
+              }
             },
-            error: (err) => {
+            error: () => {
               this.notification.notificationError('Error al eliminar héroe', 'Error');
             }
           });

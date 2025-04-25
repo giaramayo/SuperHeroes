@@ -16,7 +16,7 @@
     [heroes]="heroResource.value() ?? []"
     [errorMessage]="heroResource.error()"
     [isEmpty]="heroResource.value()?.length === 0"
-    [isLoading]="heroResource.isLoading()"
+    [isLoading]="isLoading()"
     (onActionHero)="accionHero($event)"
   />
 </div>
