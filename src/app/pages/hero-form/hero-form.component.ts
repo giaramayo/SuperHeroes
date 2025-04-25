@@ -12,7 +12,6 @@ import { DialogContentDialog } from '@shared/dialog-content/dialog-content.compo
 
 @Component({
   selector: 'app-hero-form',
-  standalone: true,
   imports: [MatFormFieldModule, MatInputModule, MatSelectModule, ReactiveFormsModule, UppercaseDirective],
   templateUrl: './hero-form.component.html',
   styleUrl: './hero-form.component.css'
@@ -41,11 +40,18 @@ export class HeroFormComponent implements OnInit {
     if (id) {
       this.isEditMode = true;
       this.heroId = id;
-      this.heroService.getHeroById(id).subscribe(hero => {
-        if (hero) {
-          this.heroForm.patchValue(hero);
-        } else {
-          this.notification.notificationWarning('No se encontró el héroe', 'Héroe NO encontrado:');
+      this.heroService.getHeroById(id).subscribe({
+        next: (hero) => {
+          if (hero) {
+            this.heroForm.patchValue(hero);
+          } else {
+            this.notification.notificationWarning('No se encontró el héroe', 'Héroe NO encontrado:');
+            this.routerHome();
+          }
+        },
+        error: (err) => {
+          console.error('Error al obtener héroe:', err);
+          this.notification.notificationError('Error al obtener héroe', 'Error:');
           this.routerHome();
         }
       });
@@ -53,36 +59,38 @@ export class HeroFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (!this.heroForm.invalid) {
-      const heroData = this.heroForm.value;
-      if (this.isEditMode) {
-        this.heroService.updateHero(heroData).subscribe({
-          next: (updatedHero) => {
-            this.notification.notificationSuccess('Héroe actualizado correctamente', 'Éxito:');
-            this.routerHome();
-          },
-          error: (err) => {
-            this.notification.notificationError('Error al actualizar el héroe', 'Error:');
-          }
-        });
-      } else {
-        const newHero = {
-          ...heroData,
-          id: Math.floor(Math.random() * 1000).toString(),
-        };
-
-        this.heroService.createHero(newHero).subscribe({
-          next: (createdHero) => {
-            this.notification.notificationSuccess('Héroe creado correctamente', 'Éxito:');
-            this.routerHome();
-          },
-          error: (err) => {
-            this.notification.notificationError('Error al crear el héroe', 'Error:');
-          }
-        });
-      }
+    if (this.heroForm.invalid) {
+      this.notification.notificationError('Formulario inválido', 'Error:');
+      return;
+    }
+    const heroData = this.heroForm.value;
+    if (this.isEditMode) {
+      this.heroService.updateHero(heroData).subscribe({
+        next: () => {
+          this.notification.notificationSuccess('Héroe actualizado correctamente', 'Éxito:');
+          this.routerHome();
+        },
+        error: (err) => {
+          this.notification.notificationError('Error al actualizar el héroe', 'Error:');
+        }
+      });
+    } else {
+      const newHero = {
+        ...heroData,
+        id: Math.floor(Math.random() * 1000).toString(),
+      };
+      this.heroService.createHero(newHero).subscribe({
+        next: () => {
+          this.notification.notificationSuccess('Héroe creado correctamente', 'Éxito:');
+          this.routerHome();
+        },
+        error: (err) => {
+          this.notification.notificationError('Error al crear el héroe', 'Error:');
+        }
+      });
     }
   }
+
 
   onDelete(): void {
     const dialogRef = this.dialog.open(DialogContentDialog, {
